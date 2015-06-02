@@ -100,7 +100,7 @@ public class MainActivity extends ActionBarActivity {
         // Create the Google API Client
         mClient = new GoogleApiClient.Builder(this)
                 .addApi(Fitness.HISTORY_API)
-                .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
+                //.addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
                 .addConnectionCallbacks(
                         new GoogleApiClient.ConnectionCallbacks() {
                             @Override
@@ -217,12 +217,14 @@ public class MainActivity extends ActionBarActivity {
             // Before querying the data, check to see if the insertion succeeded.
             if (!insertStatus.isSuccess()) {
                 Log.i(TAG, "There was a problem inserting the dataset.");
-                return null;
-            }
+                //return null;
+            }else
+            {
 
-            // At this point, the data has been inserted and can be read.
-            Log.i(TAG, "Data insert was successful!");
-            // [END insert_dataset]
+                // At this point, the data has been inserted and can be read.
+                Log.i(TAG, "Data insert was successful!");
+                // [END insert_dataset]
+            }
 
             // Begin by creating the query.
             DataReadRequest readRequest = queryFitnessData();
